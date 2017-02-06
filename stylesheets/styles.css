@@ -5,7 +5,7 @@ div.page-header{
 }
 
 div.input-group {
-  width: 95%;
+  /*width: 95%;*/
   margin: auto;
 }
 
@@ -47,7 +47,7 @@ button.btn {
 }
 
 .progress {
-  width: 95%;
+  /*width: 95%;*/
   left: 50%;
   transform: translateX(-50%);
   position: relative;
