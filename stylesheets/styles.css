@@ -1,5 +1,6 @@
 body {
   left:0;
+  position: absolute;
 }
 
 div.page-header{
