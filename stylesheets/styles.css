@@ -1,3 +1,7 @@
+body {
+  margin: 1em;
+}
+
 div.page-header{
   text-align: center;
   margin-bottom: 0;
