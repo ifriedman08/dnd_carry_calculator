@@ -42,10 +42,7 @@ dnd_cc.buildTable = function () {
   $("table.inventory-table").find("tr:gt(0)").remove();
   console.log("building table: ", dnd_cc.state.inventory);
   Object.keys(dnd_cc.state.inventory).forEach(function (key) {
-    if ($("tr." + key.replace(/\ /g,'_' ).replace(/\'/g, '-')).length > 0) {
-      dnd_cc.increaseItem(name);
-    }
-    var itemRow = $("<tr class='" + key.replace(/\ /g,'_' ).replace(/\'/g, '-') + "'>");
+    var itemRow = $("<tr class='" + key.replace(/\ /g,'_' ) + "'>");
     var itemCell = $("<td class='item''>");
     var quantityCell = $("<td class='quantity text-center'>");
     var weightCell = $("<td class='weight text-center'>");
@@ -114,13 +111,13 @@ dnd_cc.updateBar = function () {
 $('body').on('click', 'button.addOne', function (event) {
   console.log("this", this);
   console.log("event", event);
-  dnd_cc.increaseItem(this.parentElement.parentElement.classList[0].replace(/\_/, " ").replace(/\-/, "'"));
+  dnd_cc.increaseItem(this.parentElement.parentElement.classList[0].replace(/\_/, " "));
 });
 
 $('body').on('click', 'button.removeOne', function (event) {
   console.log("this", this);
   console.log("event", event);
-  dnd_cc.decreaseItem(this.parentElement.parentElement.classList[0].replace(/\_/, " ").replace(/\-/, "'"));
+  dnd_cc.decreaseItem(this.parentElement.parentElement.classList[0].replace(/\_/, " "));
 });
 
 dnd_cc.sync = function () {
