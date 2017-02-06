@@ -60,3 +60,8 @@ table.character-info td {
 div.progress-bar.active {
   background-color: red !important;
 }
+
+.tt-selectable {
+  padding: 0.5em;
+  font-size: 1.5em;
+}
