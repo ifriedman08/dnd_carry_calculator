@@ -74,17 +74,17 @@ window.dnd_cc.MANIFEST = {
   "pouch" : 1 ,
   "rations" : 2 ,
   "robes" : 4 ,
-  "hempen rope (50 ft)" : 10 ,
+  "hempen rope 50 ft" : 10 ,
   "silk rope" : 5 ,
   "sack" : 0.5 ,
   "shovel" : 5 ,
   "spellbook" : 3 ,
   "iron spike" : 0.5 ,
-  "tent (two-person)" : 20 ,
+  "tent two-person" : 20 ,
   "thieve's tools" : 1 ,
   "tinderbox" : 1 ,
   "torch" : 1 ,
-  "waterskin (full)" : 5 ,
+  "waterskin full" : 5 ,
   "whetstone" : 1
   // END GEAR
 }
