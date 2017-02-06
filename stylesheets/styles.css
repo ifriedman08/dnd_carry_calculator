@@ -1,0 +1,62 @@
+div.page-header{
+  text-align: center;
+}
+
+div.input-group {
+  width: 95%;
+  margin: auto;
+}
+
+span.twitter-typeahead {
+  width: 100%;
+}
+
+div.input-group input {
+  text-align: center;
+  width: 100%;
+}
+
+input.tt-input{
+  height: 100% !important;
+}
+
+
+table.character-info th {
+  text-align: center;
+  width: 50%;
+}
+
+div.tt-menu.tt-open {
+  background-color: white;
+  border: 1px solid black;
+  width: 100%;
+}
+
+button.btn {
+  width: 100%;
+}
+
+.progress {
+  width: 95%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  background-color: #ccc9c9 !important;
+}
+
+h3.carry-status {
+  text-align: center;
+}
+
+h3.warning {
+  text-align: center;
+  color: red;
+}
+
+table.character-info td {
+  text-align: center;
+}
+
+div.progress-bar.active {
+  background-color: red !important;
+}
