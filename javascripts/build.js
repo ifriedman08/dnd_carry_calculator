@@ -43,3 +43,8 @@ $('body').on('click', '.tt-selectable', function() {
   window.dnd_cc.addItem(name);
   window.dnd_cc.clearTypeahead();
 });
+
+$('body').on('click', 'button.clear', function () {
+  localStorage.clear();
+  window.location.reload();
+});
