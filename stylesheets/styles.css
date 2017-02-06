@@ -1,5 +1,7 @@
 div.page-header{
   text-align: center;
+  margin-bottom: 0;
+  border-bottom: none;
 }
 
 div.input-group {
@@ -14,6 +16,14 @@ span.twitter-typeahead {
 div.input-group input {
   text-align: center;
   width: 100%;
+}
+
+table.character-info {
+  margin-bottom: 0;
+}
+
+table.inventory-table {
+  margin-top: 1em;
 }
 
 input.tt-input{
@@ -51,6 +61,7 @@ h3.carry-status {
 h3.warning {
   text-align: center;
   color: red;
+  margin: 0 !important;
 }
 
 table.character-info td {
