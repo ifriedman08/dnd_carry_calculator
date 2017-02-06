@@ -65,3 +65,8 @@ div.progress-bar.active {
   padding: 0.5em;
   font-size: 1.5em;
 }
+
+pre, .tt-input, .twitter-typeahead {
+  font-size: 18px !important;
+  border-radius: 0 !important;
+}
