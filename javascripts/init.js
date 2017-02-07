@@ -1,5 +1,8 @@
 window.dnd_cc = typeof window.dnd_cc === "undefined" ? {} : window.dnd_cc;
 
+Number.prototype.truncate2 = function () {
+  return Math.floor(this * 100) / 100;
+}
 
 dnd_cc.initialize = function () {
   console.log("initializing");
@@ -59,7 +62,7 @@ dnd_cc.buildTable = function () {
     addOneCell.append(addButton);
     itemCell.html(key);
     quantityCell.html(dnd_cc.state.inventory[key]);
-    weightCell.html(dnd_cc.MANIFEST[key] * dnd_cc.state.inventory[key]);
+    weightCell.html((dnd_cc.MANIFEST[key] * dnd_cc.state.inventory[key]).truncate2());
     itemRow.append(itemCell, quantityCell, weightCell, removeOneCell, addOneCell);
     $("table.inventory-table").append(itemRow);
   });
