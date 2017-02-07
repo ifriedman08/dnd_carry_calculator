@@ -7,6 +7,9 @@ dnd_cc.initialize = function () {
   if (typeof dnd_cc.state.inventory === "undefined") {
     dnd_cc.state.inventory = {};
   }
+  if (typeof dnd_cc.state.customItems === "undefined") {
+    dnd_cc.state.customItems = {};
+  }
   console.log("initialized:", dnd_cc.state);
 };
 
@@ -42,7 +45,7 @@ dnd_cc.buildTable = function () {
   $("table.inventory-table").find("tr:gt(0)").remove();
   console.log("building table: ", dnd_cc.state.inventory);
   Object.keys(dnd_cc.state.inventory).forEach(function (key) {
-    var itemRow = $("<tr class='" + key.replace(/\ /g,'_' ) + "'>");
+    var itemRow = $("<tr class='" + key.replace(/\ /g,'_' ).replace(/\'/, '7') + "'>");
     var itemCell = $("<td class='item''>");
     var quantityCell = $("<td class='quantity text-center'>");
     var weightCell = $("<td class='weight text-center'>");
@@ -93,6 +96,22 @@ dnd_cc.getMaxCapacity = function () {
   return dnd_cc.state.strengthScore * 15;
 };
 
+dnd_cc.ensureCharacterData = function () {
+  if (typeof dnd_cc.state.strengthScore === "undefined") {
+    var strengthScore = Number(prompt("You have not entered your character's Strength Score. This is the large number associated to your strength, no + or -. Please enter it below:"));
+    dnd_cc.state.strengthScore = strengthScore;
+    console.log("saved strength score to gobal state:", strengthScore);
+    dnd_cc.save();
+  };
+
+  if (typeof dnd_cc.state.charName === "undefined") {
+    var charName = prompt("You have not entered your character's name. Please enter it below:");
+    dnd_cc.state.charName = charName;
+    console.log("saved character's name to gobal state:", charName);
+    dnd_cc.save();
+  };
+}
+
 dnd_cc.updateBar = function () {
   var ratio = (dnd_cc.getCurrentCapacity() / dnd_cc.getMaxCapacity()) * 100;
   $("div.progress-bar").css({"width" : ratio+"%"});
@@ -111,33 +130,20 @@ dnd_cc.updateBar = function () {
 $('body').on('click', 'button.addOne', function (event) {
   console.log("this", this);
   console.log("event", event);
-  dnd_cc.increaseItem(this.parentElement.parentElement.classList[0].replace(/\_/, " "));
+  var newClass = this.parentElement.parentElement.classList[0].replace(/\_/, " ").replace(/7/, "\'");
+  dnd_cc.increaseItem(newClass);
 });
 
 $('body').on('click', 'button.removeOne', function (event) {
   console.log("this", this);
   console.log("event", event);
-  dnd_cc.decreaseItem(this.parentElement.parentElement.classList[0].replace(/\_/, " "));
+  var newClass = this.parentElement.parentElement.classList[0].replace(/\_/, " ").replace(/7/, "\'");
+  dnd_cc.decreaseItem(newClass);
 });
 
 dnd_cc.sync = function () {
-
   dnd_cc.initialize();
-
-  if (typeof dnd_cc.state.strengthScore === "undefined") {
-    var strengthScore = Number(prompt("You have not entered your character's Strength Score. This is the large number associated to your strength, no + or -. Please enter it below:"));
-    dnd_cc.state.strengthScore = strengthScore;
-    console.log("saved strength score to gobal state:", strengthScore);
-    dnd_cc.save();
-  }
-
-  if (typeof dnd_cc.state.charName === "undefined") {
-    var charName = prompt("You have not entered your character's name. Please enter it below:");
-    dnd_cc.state.charName = charName;
-    console.log("saved character's name to gobal state:", charName);
-    dnd_cc.save();
-  }
-
+  dnd_cc.ensureCharacterData();
   dnd_cc.updateCharInfo();
   dnd_cc.buildTable();
 };
