@@ -150,29 +150,15 @@ dnd_cc.updateBar = function () {
 $('body').on('click', 'button.addOne', function (event) {
   console.log("this", this);
   console.log("event", event);
-  var newClass = this.parentElement.parentElement.classList[0].replace(/\_/, " ").replace(/7/, "\'");
+  var newClass = this.parentElement.parentElement.classList[0].replace(/\_/g, " ").replace(/7/g, "\'");
   dnd_cc.increaseItem(newClass);
 });
 
 $('body').on('click', 'button.removeOne', function (event) {
   console.log("this", this);
   console.log("event", event);
-  var newClass = this.parentElement.parentElement.classList[0].replace(/\_/, " ").replace(/7/, "\'");
+  var newClass = this.parentElement.parentElement.classList[0].replace(/\_/g, " ").replace(/7/g, "\'");
   dnd_cc.decreaseItem(newClass);
-});
-
-$('body').on('click', 'button.addOne.custom', function (event) {
-  console.log("this", this);
-  console.log("event", event);
-  var newClass = this.parentElement.parentElement.classList[0].replace(/\_/, " ").replace(/7/, "\'");
-  dnd_cc.increaseItem(newClass, true);
-});
-
-$('body').on('click', 'button.removeOne.custom', function (event) {
-  console.log("this", this);
-  console.log("event", event);
-  var newClass = this.parentElement.parentElement.classList[0].replace(/\_/, " ").replace(/7/, "\'");
-  dnd_cc.decreaseItem(newClass, true);
 });
 
 dnd_cc.sync = function () {
