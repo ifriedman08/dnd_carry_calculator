@@ -92,3 +92,7 @@ pre, .tt-input, .twitter-typeahead {
 div.modal {
   padding: none !important;
 }
+
+input#customWeight, input#customName {
+  font-size: 16px;
+}
