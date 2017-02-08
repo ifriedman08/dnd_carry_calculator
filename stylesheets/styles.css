@@ -1,5 +1,6 @@
 body {
   margin: 1em !important;
+  padding: 0 !important;
 }
 
 div.page-header{
@@ -32,6 +33,7 @@ table.inventory-table {
 
 input.tt-input{
   height: 100% !important;
+  z-index: 0 !important;
 }
 
 
@@ -85,4 +87,8 @@ div.progress-bar.active {
 pre, .tt-input, .twitter-typeahead {
   font-size: 18px !important;
   border-radius: 0 !important;
+}
+
+div.modal {
+  padding: none !important;
 }

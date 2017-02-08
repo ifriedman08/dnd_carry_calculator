@@ -7,9 +7,54 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
   <body>
+    <!-- custom Modal -->
+    <div id="custom-item" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customItemModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Custom Item</h4>
+          </div>
+          <div class="modal-body">
+            <form class="custom-item-form">
+              <div class="form-group">
+                <input type="text" class="form-control" id="customName" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control" id="customWeight" placeholder="Weight">
+              </div>
+              <!-- <button type="submit" class="btn btn-info">Submit</button> -->
+              <button type="button" class="btn btn-info add-custom-item" data-dismiss="modal">Add</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- confirm clear Modal -->
+    <div id="clear" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="customItemModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Are you sure you want to clear?</h4>
+          </div>
+          <div class="modal-body">
+            <button type="button" class="btn btn-danger clear-confirm" data-dismiss="modal">Clear it!!!</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+          <!-- <div class="modal-footer">
+          </div> -->
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
     <div class="page-header">
       <h1>Carry Calculator</h1>
     </div>
@@ -29,7 +74,7 @@
       <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
     </div>
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="search items by name">
+      <input type="text" class="form-control search" placeholder="search items by name">
     </div>
     <div class="item-list-container">
       <table class="table table-bordered table-striped inventory-table">
@@ -42,10 +87,12 @@
         </tr>
       </table>
     </div>
-    <!-- <button type="button" class="btn btn-lg btn-info custom-item">Custom Item</button> -->
-    <button type="button" class="btn btn-lg btn-danger clear">Clear Memory</button>
+    <button type="button" class="btn btn-lg btn-info custom-item" data-toggle="modal" data-target="#custom-item">Custom Item</button>
+    <button type="button" class="btn btn-lg btn-danger clear" data-toggle="modal" data-target="#clear">Clear Memory</button>
+
   </body>
   <script src="javascripts/manifest.js" charset="utf-8"></script>
+  <script src="javascripts/customItems.js" charset="utf-8"></script>
   <script src="javascripts/init.js" charset="utf-8"></script>
   <script src="javascripts/typeahead.js" charset="utf-8"></script>
   <script src="javascripts/build.js" charset="utf-8"></script>

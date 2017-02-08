@@ -1,5 +1,7 @@
 window.dnd_cc = typeof window.dnd_cc === "undefined" ? {} : window.dnd_cc;
 
+console.log("setting manifest");
+
 window.dnd_cc.MANIFEST = {
   // ARMOR START
   "leather armor" : 10 ,

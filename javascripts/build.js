@@ -1,5 +1,3 @@
-
-
 var substringMatcher = function(strs) {
   return function findMatches(q, cb) {
     var matches, substringRegex;
@@ -26,7 +24,7 @@ Object.keys(window.dnd_cc.MANIFEST).forEach(function (item) {
   itemNames.push(item);
 });
 
-$('input.form-control').typeahead({
+$('input.form-control.search').typeahead({
   hint: false,
   highlight: false,
   minLength: 1
@@ -40,11 +38,17 @@ $('input.form-control').typeahead({
 $('body').on('click', '.tt-selectable', function() {
   console.log('selectable clicked:', this);
   var name = this.innerHTML;
-  window.dnd_cc.addItem(name);
+  var weight = window.dnd_cc.MANIFEST[name];
+  window.dnd_cc.addItem(name, weight);
   window.dnd_cc.clearTypeahead();
 });
 
-$('body').on('click', 'button.clear', function () {
+$('body').on('click', 'button.clear-confirm', function () {
   localStorage.clear();
   window.location.reload();
 });
+
+// $('body').on('click', 'button.custom-item', function () {
+//   console.log("opening custom items");
+//   dnd_cc.openCustomModal();
+// });
