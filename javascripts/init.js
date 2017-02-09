@@ -84,6 +84,7 @@ dnd_cc.renderTable = function (custom) {
     $("table.inventory-table").append(itemRow);
   });
   dnd_cc.updateBar();
+  $("td").css("vertical-align","middle");
 };
 
 dnd_cc.increaseItem = function (name, custom) {
@@ -135,7 +136,7 @@ dnd_cc.ensureCharacterData = function () {
 dnd_cc.updateBar = function () {
   var ratio = (dnd_cc.getCurrentCapacity() / dnd_cc.getMaxCapacity()) * 100;
   $("div.progress-bar").css({"width" : ratio+"%"});
-  $("h3.carry-status").html(dnd_cc.getCurrentCapacity() + " / " + dnd_cc.getMaxCapacity());
+  $("h3.carry-status").html(Math.floor((dnd_cc.getCurrentCapacity()*100)/100) + " / " + dnd_cc.getMaxCapacity());
   if (dnd_cc.getCurrentCapacity() >= dnd_cc.getMaxCapacity()) {
     //too much
     $("div.progress-bar").addClass("active");

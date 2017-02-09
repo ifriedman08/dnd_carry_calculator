@@ -48,7 +48,6 @@ $('body').on('click', 'button.clear-confirm', function () {
   window.location.reload();
 });
 
-$("td").css("vertical-align","middle");
 
 // $('body').on('click', 'button.custom-item', function () {
 //   console.log("opening custom items");
