@@ -73,8 +73,8 @@ dnd_cc.renderTable = function (custom) {
     var removeButton = $('<button type="button" class="btn btn-danger removeOne">');
     var addOneCell = $("<td class='addOne'>");
     var addButton = $('<button type="button" class="btn btn-success addOne">');
-    removeButton.html("-");
-    addButton.html("+");
+    removeButton.html('<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>');
+    addButton.html('<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>');
     removeOneCell.append(removeButton);
     addOneCell.append(addButton);
     itemCell.html(key);
